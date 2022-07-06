@@ -248,6 +248,4 @@ public class Simulation : MonoBehaviour
 	{
 		//Gizmos.DrawWireCube(Vector3.zero, boundsSize);
 	}
-
-	
 }

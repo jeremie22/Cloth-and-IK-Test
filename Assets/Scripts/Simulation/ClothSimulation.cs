@@ -6,7 +6,6 @@ public class ClothSimulation : Simulation
 {
 	[Header("Cloth Settings")]
 	public Vector2Int numPoints;
-	[Tooltip("How wide the rope would be x, y - like a container box")]
 	public Vector2 boundsSize;
 	Vector2 cutPosOld;
 
@@ -16,10 +15,10 @@ public class ClothSimulation : Simulation
 
 		for (int y = 0; y < numPoints.y; y++)
 		{
-			float ty = y / (numPoints.y); //removed -1f from numPoints.y
+			float ty = y / (numPoints.y - 1f);
 			for (int x = 0; x < numPoints.x; x++)
 			{
-				bool locked = y == 0 && x % 39 == 0; //controls how wide the locked dot is
+				bool locked = y == 0 && x % 5 == 0;
 				float tx = x / (numPoints.x - 1f);
 				int i = IndexFrom2DCoord(x, y);
 				Vector2 position = new Vector2((tx - 0.5f) * boundsSize.x * 0.7f, (0.5f - ty) * boundsSize.y * 0.7f);
